@@ -1,6 +1,7 @@
-import os
 import multiprocessing
+
 import numpy as np
+
 from ultralytics import YOLO
 
 
@@ -41,7 +42,7 @@ def main():
         ap50 = metrics.box.ap50[i]
 
         ap75 = 0.0
-        if hasattr(metrics.box, 'all_ap') and metrics.box.all_ap is not None:
+        if hasattr(metrics.box, "all_ap") and metrics.box.all_ap is not None:
             all_ap = metrics.box.all_ap
             if all_ap.shape[0] > i and all_ap.shape[1] > 5:
                 ap75 = all_ap[i, 5]
@@ -53,9 +54,11 @@ def main():
     mean_f1 = 2 * (mean_p * mean_r) / (mean_p + mean_r) if (mean_p + mean_r) > 0 else 0.0
 
     print(f"  {'─' * 75}")
-    print(f"  {'MEAN (all classes)':<25s} {mean_p:>10.3f} {mean_r:>10.3f} {mean_f1:>10.3f} {metrics.box.map50:>10.3f} {metrics.box.map75:>10.3f}")
+    print(
+        f"  {'MEAN (all classes)':<25s} {mean_p:>10.3f} {mean_r:>10.3f} {mean_f1:>10.3f} {metrics.box.map50:>10.3f} {metrics.box.map75:>10.3f}"
+    )
 
-    print(f"\n--- Overall Summary ---\n")
+    print("\n--- Overall Summary ---\n")
     print(f"  mAP@0.5:          {metrics.box.map50:.4f}")
     print(f"  mAP@0.75:         {metrics.box.map75:.4f}")
     print(f"  mAP@0.5:0.95:     {metrics.box.map:.4f}")
@@ -63,7 +66,7 @@ def main():
     print(f"  Mean Recall:       {mean_r:.4f}")
     print(f"  Mean F1-Score:     {mean_f1:.4f}")
 
-    print(f"\n--- Speed ---\n")
+    print("\n--- Speed ---\n")
     print(f"  Preprocess:   {metrics.speed['preprocess']:.1f} ms/image")
     print(f"  Inference:    {metrics.speed['inference']:.1f} ms/image")
     print(f"  Postprocess:  {metrics.speed['postprocess']:.1f} ms/image")
@@ -71,12 +74,12 @@ def main():
     print(f"\n{'=' * 60}")
     print("PLOTS SAVED!")
     print(f"{'=' * 60}")
-    print(f"\n  Charts saved in: runs/detect/evaluation_results/")
-    print(f"    - confusion_matrix.png")
-    print(f"    - F1_curve.png")
-    print(f"    - PR_curve.png")
-    print(f"    - P_curve.png")
-    print(f"    - R_curve.png")
+    print("\n  Charts saved in: runs/detect/evaluation_results/")
+    print("    - confusion_matrix.png")
+    print("    - F1_curve.png")
+    print("    - PR_curve.png")
+    print("    - P_curve.png")
+    print("    - R_curve.png")
 
 
 if __name__ == "__main__":
