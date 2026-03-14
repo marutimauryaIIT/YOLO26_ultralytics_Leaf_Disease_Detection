@@ -1,0 +1,5 @@
+Step 1 — Open a new terminal in VS Code
+Step 2 — Activate the virtual environment
+                                                   .\venv\Scripts\Activate
+Step 3 — Run whichever script you need
+                                                     python evaluate_model.py

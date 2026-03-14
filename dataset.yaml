@@ -1,0 +1,11 @@
+# Rice Leaf Disease Dataset
+# 3 classes: bacterial_leaf_blight, blast, brownspot
+
+path: D:/YOLO26_ultralytics/YOLO26_ultralytics/rice_disease_dataset
+train: images/train
+val: images/val
+
+names:
+  0: bacterial_leaf_blight
+  1: blast
+  2: brownspot
