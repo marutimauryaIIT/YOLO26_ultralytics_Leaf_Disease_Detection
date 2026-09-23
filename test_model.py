@@ -1,6 +1,7 @@
 import os
 import random
 from pathlib import Path
+
 from ultralytics import YOLO
 
 print("=" * 60)
@@ -67,9 +68,9 @@ print(f"\n{'=' * 60}")
 print("TESTING COMPLETE!")
 print(f"{'=' * 60}")
 print(f"  Total images tested:  {total_tested}")
-print(f"  Images with detection: {total_detections}/{total_tested} ({total_detections/total_tested:.1%})")
+print(f"  Images with detection: {total_detections}/{total_tested} ({total_detections / total_tested:.1%})")
 print(f"\n  All predicted images saved in: {output_dir}/")
-print(f"    bacterial_leaf_blight/")
-print(f"    blast/")
-print(f"    brownspot/")
-print(f"\n  Open the test_results folder in VS Code sidebar to view them!")
+print("    bacterial_leaf_blight/")
+print("    blast/")
+print("    brownspot/")
+print("\n  Open the test_results folder in VS Code sidebar to view them!")
