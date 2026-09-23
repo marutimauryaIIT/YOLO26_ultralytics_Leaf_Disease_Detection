@@ -1,6 +1,6 @@
 import os
-import shutil
 import random
+import shutil
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
@@ -26,6 +26,7 @@ for split in ["train", "val"]:
     os.makedirs(f"{OUTPUT_DIR}/labels/{split}", exist_ok=True)
 
 print("Created output folders.")
+
 
 # === CONVERT VOC XML TO YOLO FORMAT ===
 def convert_voc_to_yolo(xml_path, class_id):
@@ -130,6 +131,7 @@ print(f"\nTotal samples: {len(all_samples)}")
 print(f"Training: {len(train_samples)}")
 print(f"Validation: {len(val_samples)}")
 
+
 # === COPY FILES TO OUTPUT ===
 def save_samples(samples, split):
     for i, (img_path, yolo_lines, class_label) in enumerate(samples):
@@ -143,6 +145,7 @@ def save_samples(samples, split):
         # Write YOLO label file
         with open(f"{OUTPUT_DIR}/labels/{split}/{new_name}.txt", "w") as f:
             f.write("\n".join(yolo_lines))
+
 
 save_samples(train_samples, "train")
 save_samples(val_samples, "val")
@@ -175,8 +178,6 @@ print(f"\n{'=' * 50}")
 print("DATASET READY!")
 print(f"{'=' * 50}")
 print(f"Output folder: {OUTPUT_DIR}/")
-print(f"Config file:   dataset.yaml")
-print(f"\nYou can now train with:")
-print(f"  python train_rice_disease.py")
-
-
+print("Config file:   dataset.yaml")
+print("\nYou can now train with:")
+print("  python train_rice_disease.py")
