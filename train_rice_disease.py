@@ -1,7 +1,8 @@
 import torch
+
 from ultralytics import YOLO
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print("=" * 50)
     print("TRAINING YOLO26 ON RICE LEAF DISEASES")
     print("=" * 50)
